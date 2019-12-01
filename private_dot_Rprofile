@@ -1,0 +1,4 @@
+### Settings consolidated over multiple machines
+options( digits=4, show.signif.stars=FALSE)
+options(Ncpus = 4)
+Sys.setenv(RETICULATE_PYTHON = "/usr/bin/python3")
