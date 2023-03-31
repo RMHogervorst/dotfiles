@@ -87,7 +87,7 @@ matches:
       
       #  Interesting ideas
       * [page] idea
-  - trigger: templ_outl
+  - trigger: :templ_outl
     replace: |
       ## outline {}
       (save as `o_*`, use this as an outline for new work)
