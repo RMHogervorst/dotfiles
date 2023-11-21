@@ -11,6 +11,13 @@ matches:
         type: date
         params:
           format: "%Y-%m-%d"
+  - trigger: ":hdate"
+    replace: "{{mydate}}"
+    vars:
+      - name: myhdate
+        type: date
+        params:
+          format: "%d-%m-%Y"
   - trigger: ":shell"
     replace: "{{output}}"
     vars:
