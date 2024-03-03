@@ -1,0 +1,65 @@
+[credential]
+	helper = cache
+[user]
+	email = hogervorst.rm@gmail.com
+	name = Roel M. Hogervorst
+	username = rmhogervorst
+[init]
+	defaultBranch = main
+[diff]
+
+	# Detect copies as well as renames
+	renames = copies
+	algorithm = histogram
+[status]
+  short = true
+  branch = true
+
+[color]
+        ui = true
+
+[color "branch"]
+        current = yellow reverse
+        local = yellow
+        remote = green
+[alias]
+        # Show all branches
+        br = branch -av 
+        # Show the current branch name (useful for shell prompts) 
+        brname = !git branch | grep "^*" | awk '{ print $2 }' 
+        # Delete a branch brdel = branch -D
+        # https://gist.github.com/pksunkara/988716
+        # Show verbose output about tags, branches or remotes
+        tags = tag -l
+        branches = branch -a
+        remotes = remote -v
+
+        # Remove branches that have already been merged with master
+        # a.k.a. ‘delete merged’
+        dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+        # alias that displays your branches and when you last changed them.
+        wip = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads
+
+        # List contributors with number of commits
+        contributors = shortlog --summary --numbered
+
+        undo = reset --soft HEAD^
+
+	recent = ! git branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\" | head -10
+
+[merge]
+	conflictstyle = diff3
+[rebase]
+	autosquash = true
+[push]
+	default = current
+[rerere]
+	enabled = true
+	autoupdate = 1
+[deff]
+	algorithm = histogram
+[branch]
+	sort = -committerdate
+[log]
+	date = iso
